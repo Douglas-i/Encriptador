@@ -1,0 +1,37 @@
+:root {
+    --fuente: 'Inter', sans-serif;
+    
+    /** Paletas de colores dark blue (db) **/
+    --db100: #609ED4;
+    --db200: #356EA9;
+    --db300: #0A3871;
+    --db400: #072B61;
+    --db401: #052051;
+
+    --blanco: #ffff;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+img {
+    max-width: 100%;
+}
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
