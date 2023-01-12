@@ -10,23 +10,27 @@
 </head>
 <body>
     <main class="contenedor-principal">
-        <div class="logo">
-            <img src="img/logo.png" alt="">
-        </div>
+                
+        <!-- <img src="img/logo.png" alt="logo" class="logo"> -->
 
-        <div class="area-texto">
-            <div class="area-texto__encriptar">
-                <textarea name="texto-encriptar" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div class="area-texto__encriptado">
-                <textarea name="texto-encriptado" id="" cols="30" rows="10" disabled></textarea>
-            </div>
+        <div class="texto-encriptar">
+            <img src="img/logo.png" alt="logo" class="logo">
+            <textarea name="texto1" placeholder="Ingrese el texto aqui"></textarea>
+            <!-- <input type="text" placeholder="Ingrese el texto aquí"> -->
+        </div>
+        <div class="texto-encriptado">
+            <img src="img/Muñeco.png" alt="imagen" class="img-textarea">
+            <p class="p1">Ningun Mensaje fue encontrado</p>
+            <p class="p2">Ingresa el texto que deseas encriptar o desencriptar </p>
+            <textarea name="texto2" disabled></textarea>
         </div>
 
         <div class="botones">
-            <button>Encriptar</button>
-            <button>Desencriptar</button>
+            <p class="p3">Solo letras mayusculas sin acentos.</p>
+            <button class="boton">Encriptar</button>
+            <button class="boton boton--color">Desencriptar</button>
         </div>
+
     </main>
 </body>
 </html>
