@@ -1,17 +1,19 @@
 //Iniciando JavaScroipt
 
 //Declaraciones de las variables
-let textoEncriptar;
+let mensaje;
 let textoEncriptado = '';
+let textoDesencriptado = '';
 const textAreaEncriptar = document.querySelector("#textarea1");
 const textAreaEncriptado = document.querySelector("#textarea2");
 const btnEncriptar = document.querySelector('#btnEncriptar');
+const btnDesencriptar = document.querySelector('#btnDesencriptar');
 const img = document.querySelector('.img-textarea');
 
 //------------------
 
 textAreaEncriptar.addEventListener('input', function(e) {
-    textoEncriptar = e.target.value;    
+    mensaje = e.target.value;    
 });
 
 btnEncriptar.addEventListener('click', function(e) {    
@@ -20,48 +22,118 @@ btnEncriptar.addEventListener('click', function(e) {
     let posActual = 0;
     let final;
 
-    if(textoEncriptar.value != ''){
+    if(mensaje.value != ''){
 
-        for(let i = 0; i < textoEncriptar.length; i++) {            
+        for(let i = 0; i < mensaje.length; i++) {            
 
-            if(textoEncriptar[i] === 'a') {                
+            if(mensaje[i] === 'a') {                
 
-                actual = actual + textoEncriptar.slice(posActual, i + 1) +  'i'
-                final = textoEncriptar.slice(i + 1, textoEncriptar.length);
+                actual = actual + mensaje.slice(posActual, i + 1) +  'i'
+                final = mensaje.slice(i + 1, mensaje.length);
                 posActual = i + 1;                
 
             }
-            if(textoEncriptar[i] === 'o') {                
+            else if(mensaje[i] === 'o') {                
                 
-                actual = actual + textoEncriptar.slice(posActual, i + 1) + 'ber';
-                final = textoEncriptar.slice(i + 1, textoEncriptar.length);
+                actual = actual + mensaje.slice(posActual, i + 1) + 'ber';
+                final = mensaje.slice(i + 1, mensaje.length);
                 posActual = i + 1;
 
             }
-            else if(textoEncriptar[i] === 'e') {                
+            else if(mensaje[i] === 'e') {                
                 
-                actual = actual + textoEncriptar.slice(posActual, i + 1) + 'nter';
-                final = textoEncriptar.slice(i + 1, textoEncriptar.length);
+                actual = actual + mensaje.slice(posActual, i + 1) + 'nter';
+                final = mensaje.slice(i + 1, mensaje.length);
                 posActual = i + 1;
                 
             }
-            else if(textoEncriptar[i] === 'i') {                
+            else if(mensaje[i] === 'i') {                
                 
-                actual = actual + textoEncriptar.slice(posActual, i + 1) + 'mes';
-                final = textoEncriptar.slice(i + 1, textoEncriptar.length);
+                actual = actual + mensaje.slice(posActual, i + 1) + 'mes';
+                final = mensaje.slice(i + 1, mensaje.length);
                 posActual = i + 1;
                 
             }
-            else if(textoEncriptar[i] === 'u') {                
+            else if(mensaje[i] === 'u') {                
                 
-                actual = actual + textoEncriptar.slice(posActual, i + 1) + 'fat';
-                final = textoEncriptar.slice(i + 1, textoEncriptar.length);
+                actual = actual + mensaje.slice(posActual, i + 1) + 'fat';
+                final = mensaje.slice(i + 1, mensaje.length);
                 posActual = i + 1;
                 
             }
         }
         textoEncriptado = actual + final;        
         img.style.visibility = 'hidden'; 
-        textAreaEncriptado.textContent = textoEncriptado;        
+        document.querySelector('.p1').style.visibility = 'hidden';
+        document.querySelector('.p2').style.visibility = 'hidden';        
+        textAreaEncriptado.textContent = textoEncriptado;     
     }      
 });
+
+btnDesencriptar.addEventListener('click', function(e){
+    let pos = 0;
+    let actual = '';
+    let final = '';
+
+    if(mensaje.value != '') {
+        
+        let j = mensaje.length;
+
+        for( let i = 0; i < mensaje.length; i++) {
+            console.log('--------------');            
+            console.log(i);
+
+            //Cambio de ai por a
+            if(mensaje.indexOf('ai') != -1) {
+                pos = mensaje.indexOf('ai');
+                
+                actual = mensaje.slice(0, pos);
+                final = mensaje.slice(pos + 2, mensaje.length);
+                mensaje = actual + 'a' + final;
+                textoDesencriptado = mensaje;                
+            }
+            //Cambio de ober por o
+            if (mensaje.indexOf('ober') != -1) {
+                pos = mensaje.indexOf('ober');
+                
+                actual = '';
+                actual = mensaje.slice(0, pos);                        
+                final = mensaje.slice(pos + 4, mensaje.length);            
+                mensaje = actual + 'o' + final;
+                textoDesencriptado = mensaje;                
+            }
+            //Cambio de ufat por u
+            if(mensaje.indexOf('ufat') != -1) {
+                pos = mensaje.indexOf('ufat');
+
+                actual = '';
+                actual = mensaje.slice(0, pos);
+                final = mensaje.slice(pos + 4, mensaje.length);
+                mensaje = actual + 'u' + final;
+                textoDesencriptado = mensaje;                            
+            }
+            //Cmambio de enter por e
+            if(mensaje.indexOf('enter') != -1) {
+                pos = mensaje.indexOf('enter');
+
+                actual = '';
+                actual = mensaje.slice(0, pos);
+                final = mensaje.slice(pos + 5, mensaje.length);
+                mensaje = actual + 'e' + final;
+                textoDesencriptado = mensaje;                
+            }
+            //Cambiando de imes a i
+            if(mensaje.indexOf('imes') != -1 ) {
+                pos = mensaje.indexOf('imes');
+
+                actual = '';
+                actual = mensaje.slice(0, pos);
+                final = mensaje.slice(pos + 4, mensaje.length);
+                mensaje = actual + 'i' + final;
+                textoDesencriptado = mensaje;                
+            }                              
+        }
+
+        textAreaEncriptado.textContent = textoDesencriptado;
+    }
+})

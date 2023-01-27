@@ -44,7 +44,7 @@ body {
     font-family: var(--fuente);
 }
 .logo {
-    height: 7rem;
+    height: 6rem;
 }
 .contenedor-principal {        
     display: grid;
@@ -60,7 +60,7 @@ body {
 }
 .texto-encriptar textarea {
     width: 70rem;
-    height: 35rem;
+    height: 30rem;
     resize: none;
     border: none;
     background-color: var(--lightblue100);
@@ -85,6 +85,10 @@ body {
     background-color: var(--blanco);
     border-radius: 2rem;
     resize: none;
+    color: #495057;
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-align: center;    
 }
 .img-textarea {
     position: absolute;
@@ -130,5 +134,5 @@ body {
 /** Footer **/
 .footer p {
     color: var(--db401);
-    margin-left: 35rem;
+    margin-left: 35rem;    
 }
