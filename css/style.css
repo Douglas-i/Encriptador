@@ -108,7 +108,7 @@ body {
     font-size: 1.3rem;    
     font-weight: 400;
     width: 30rem;
-    margin-top: 48rem;    
+    margin-top: 46rem;    
     line-height: 2rem;
 }
 
@@ -125,6 +125,13 @@ body {
 .boton--color {
     background-color: #D8DFE8;
     color: var(--db300);    
+}
+.boton--copiar {
+    background-color: white;
+    position: absolute;
+    color: var(--db300);
+    margin-top: 52rem;
+    display: none;
 }
 .p3 {
     font-size: 1.3rem;

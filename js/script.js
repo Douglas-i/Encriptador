@@ -8,6 +8,7 @@ const textAreaEncriptar = document.querySelector("#textarea1");
 const textAreaEncriptado = document.querySelector("#textarea2");
 const btnEncriptar = document.querySelector('#btnEncriptar');
 const btnDesencriptar = document.querySelector('#btnDesencriptar');
+const btnCopiar = document.querySelector('#btnCopiar');
 const img = document.querySelector('.img-textarea');
 
 //------------------
@@ -65,9 +66,12 @@ btnEncriptar.addEventListener('click', function(e) {
         textoEncriptado = actual + final;        
         img.style.visibility = 'hidden'; 
         document.querySelector('.p1').style.visibility = 'hidden';
-        document.querySelector('.p2').style.visibility = 'hidden';        
+        document.querySelector('.p2').style.visibility = 'hidden';
+        btnCopiar.style.display = 'block';
+        document.getElementById("textarea1").value = "";
         textAreaEncriptado.textContent = textoEncriptado;     
-    }      
+    }
+    
 });
 
 btnDesencriptar.addEventListener('click', function(e){
@@ -79,9 +83,7 @@ btnDesencriptar.addEventListener('click', function(e){
         
         let j = mensaje.length;
 
-        for( let i = 0; i < mensaje.length; i++) {
-            console.log('--------------');            
-            console.log(i);
+        for( let i = 0; i < mensaje.length; i++) {            
 
             //Cambio de ai por a
             if(mensaje.indexOf('ai') != -1) {
@@ -134,6 +136,29 @@ btnDesencriptar.addEventListener('click', function(e){
             }                              
         }
 
+        textoEncriptado = actual + final;        
+        img.style.visibility = 'hidden'; 
+        document.querySelector('.p1').style.visibility = 'hidden';
+        document.querySelector('.p2').style.visibility = 'hidden';
+        btnCopiar.style.display = 'block';
+        document.getElementById("textarea1").value = "";
         textAreaEncriptado.textContent = textoDesencriptado;
     }
-})
+});
+
+btnCopiar.addEventListener('click', function(){
+    let texto = textAreaEncriptado.textContent;
+    navigator.clipboard.writeText(texto)
+    .then(() => {
+        console.log('Text copied to clipboard');
+    })
+    .catch(err => {
+        console.error('Error in copying text: ', err);
+    });
+
+    textAreaEncriptado.textContent = '';
+    img.style.visibility = 'visible'; 
+    document.querySelector('.p1').style.visibility = 'visible';
+    document.querySelector('.p2').style.visibility = 'visible';
+    btnCopiar.style.display = 'none';
+});
